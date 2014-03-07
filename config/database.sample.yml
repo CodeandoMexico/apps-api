@@ -1,0 +1,18 @@
+postgresql: &postgresql
+  adapter: postgresql
+  host: localhost
+  min_messages: ERROR
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *postgresql
+  database: apps-api_development
+
+test:
+  <<: *postgresql
+  database: apps-api_test
+
+production:
+  <<: *postgresql
+  database: apps-api_production
