@@ -1,5 +1,8 @@
 module V1
   class AppsController < ApplicationController
+    include ActionController::HttpAuthentication::Token::ControllerMethods
+
+    before_filter :restrict_access, only: [:update, :create, :destroy]
     def index
       @apps = App.all
       render json: @apps
@@ -7,11 +10,6 @@ module V1
 
     def show
       @app = App.find(params[:id])
-      render json: @app
-    end
-
-    def new
-      @app = App.new
       render json: @app
     end
 
@@ -40,6 +38,14 @@ module V1
       @app.destroy
 
       head :no_content
+    end
+
+  private
+
+    def restrict_access
+      authenticate_or_request_with_http_token do |token, options|
+        ApiKey.exists?(access_token: token)
+      end
     end
   end
 end
