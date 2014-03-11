@@ -16,7 +16,7 @@ module V1
     def update
       @app = App.find(params[:id])
 
-      if @app.update_attributes(params[:app])
+      if @app.update_attributes(app_params)
         head :no_content
       else
         render json: @app.errors, status: :unprocessable_entity
@@ -24,10 +24,10 @@ module V1
     end
 
     def create
-      @app = App.new(params[:app])
+      @app = App.new(app_params)
 
       if @app.save
-        render json: @app, status: :created, location: @app
+        render json: @app, status: :created
       else
         render json: @app.errors, status: :unprocessable_entity
       end
@@ -46,6 +46,10 @@ module V1
       authenticate_or_request_with_http_token do |token, options|
         ApiKey.exists?(access_token: token)
       end
+    end
+
+    def app_params
+      params.require(:app).permit(:dataset_uris, :challenge_url, :codebase_url, :demo_url, :description, :name, :creators, :organization, :location)
     end
   end
 end
