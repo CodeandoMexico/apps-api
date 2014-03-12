@@ -2,22 +2,24 @@ module V1
   class AppsController < ApplicationController
     include ActionController::HttpAuthentication::Token::ControllerMethods
 
-    before_filter :restrict_access, only: [:update, :create, :destroy]
+    before_action :restrict_access, only: [:update, :create, :destroy]
+    before_action :set_article, only: [:show, :edit, :update, :destroy]
+
     def index
-      @apps = App.all
+      @apps = App.all_visible
+      request.GET.each do |key, value|
+        @apps = @apps.filter(key,value)
+      end
       render json: @apps
     end
 
     def show
-      @app = App.find(params[:id])
       render json: @app
     end
 
     def update
-      @app = App.find(params[:id])
-
-      if @app.update_attributes(app_params)
-        head :no_content
+      if @app.update(app_params)
+        render json: @app, status: :accepted
       else
         render json: @app.errors, status: :unprocessable_entity
       end
@@ -34,10 +36,9 @@ module V1
     end
 
     def destroy
-      @app = App.find(params[:id])
       @app.destroy
 
-      head :no_content
+      head :no_content, status: :ok
     end
 
   private
@@ -48,8 +49,12 @@ module V1
       end
     end
 
+    def set_article
+      @app = App.find(params[:id])
+    end
+
     def app_params
-      params.require(:app).permit(:dataset_uris, :challenge_url, :codebase_url, :demo_url, :description, :name, :creators, :organization, :location)
+      params.require(:app).permit(:dataset_uris, :challenge_url, :codebase_url, :demo_url, :description, :name, :creators, :organization, :location, :logo_url, :visible)
     end
   end
 end
