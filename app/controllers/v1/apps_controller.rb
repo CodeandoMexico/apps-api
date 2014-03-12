@@ -4,6 +4,7 @@ module V1
 
     before_action :restrict_access, only: [:update, :create, :destroy]
     before_action :set_article, only: [:show, :edit, :update, :destroy]
+    after_action :set_access_control_headers, only: [:index]
 
     def index
       @apps = App.all_visible
@@ -55,6 +56,12 @@ module V1
 
     def app_params
       params.require(:app).permit(:dataset_uris, :challenge_url, :codebase_url, :demo_url, :description, :name, :creators, :organization, :location, :logo_url, :visible)
+    end
+
+    # This is used to allow the cross origin requests
+    def set_access_control_headers
+      headers['Access-Control-Allow-Origin'] = "*"
+      headers['Access-Control-Request-Method'] = %w{GET POST OPTIONS}.join(",")
     end
   end
 end
