@@ -55,7 +55,7 @@ module V1
     end
 
     def app_params
-      params.require(:app).permit(:dataset_uris, :challenge_url, :codebase_url, :demo_url, :description, :name, :creators, :organization, :location, :logo_url, :visible)
+      params.require(:app).permit(:dataset_uris, :challenge_url, :codebase_url, :demo_url, :description, :name, :creators, :organization, :location, :logo_url, :visible, :technologies)
     end
 
     # This is used to allow the cross origin requests
