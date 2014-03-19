@@ -1,0 +1,34 @@
+{
+  "resources": [
+    {
+      "name": "Apps",
+      "examples": [
+        {
+          "description": "Create an App",
+          "link": "apps/create_an_app.json",
+          "groups": "all"
+        },
+        {
+          "description": "Deleting an app",
+          "link": "apps/deleting_an_app.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting a list of apps",
+          "link": "apps/getting_a_list_of_apps.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting a specific app",
+          "link": "apps/getting_a_specific_app.json",
+          "groups": "all"
+        },
+        {
+          "description": "Update an App",
+          "link": "apps/update_an_app.json",
+          "groups": "all"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "resource": "Apps",
+  "http_method": "PATCH",
+  "route": "v1/apps/:id",
+  "description": "Update an App",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "dataset_uris",
+      "description": "Dataset uris separados por comma"
+    },
+    {
+      "name": "challenge_url",
+      "description": "Url del challenge"
+    },
+    {
+      "name": "codebase_url",
+      "description": "Url del código fuente open source"
+    },
+    {
+      "name": "demo_url",
+      "description": "Url del demo de la app"
+    },
+    {
+      "name": "description",
+      "description": "Descripción de la app"
+    },
+    {
+      "name": "name",
+      "description": "Nombre de la app"
+    },
+    {
+      "name": "creators",
+      "description": "Twitter de los creadores separados por comma"
+    },
+    {
+      "name": "organization",
+      "description": "Organización que creo la app"
+    },
+    {
+      "name": "location",
+      "description": "Ubicación de los creadores"
+    },
+    {
+      "name": "logo_url",
+      "description": "Logo de la app"
+    },
+    {
+      "name": "visible",
+      "description": "Parametro para fistrar apps en el showcase"
+    },
+    {
+      "name": "technologies",
+      "description": "Tecnologias usadas en la app separadas por comma"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "v1/apps/2",
+      "request_body": "{\"app\":{\"name\":\"Apps Api Updated Name\"}}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token token=8d64de3ac8b217b3ac51e4ac6a06da2c",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 202,
+      "response_status_text": "Accepted",
+      "response_body": "{\"id\":2,\"dataset_uris\":\"dataset1,dataset2\",\"challenge_url\":\"challenge\",\"codebase_url\":\"http//github.com\",\"demo_url\":\"http://demo.url\",\"description\":\"description2\",\"name\":\"Apps Api Updated Name\",\"creators\":\"cmx\",\"organization\":\"codeandomexico\",\"location\":\"location2\",\"logo_url\":\"logo.png\",\"visible\":true,\"created_at\":\"2014-03-18T15:31:59.102-05:00\",\"updated_at\":\"2014-03-18T15:31:59.157-05:00\",\"technologies\":\"ruby,rails\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache","X-Request-Id":"36ee671a-6d0a-4f3b-ad5a-340ca6139cea","X-Runtime":"0.005165","Content-Length":"421"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

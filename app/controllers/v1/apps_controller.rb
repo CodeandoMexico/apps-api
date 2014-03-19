@@ -2,7 +2,7 @@ module V1
   class AppsController < ApplicationController
     include ActionController::HttpAuthentication::Token::ControllerMethods
 
-    before_action :restrict_access, only: [:update, :create, :destroy]
+    before_action :authenticate, only: [:update, :create, :destroy]
     before_action :set_article, only: [:show, :edit, :update, :destroy]
     after_action :set_access_control_headers, only: [:index]
 
@@ -43,11 +43,18 @@ module V1
     end
 
   private
-
-    def restrict_access
-      authenticate_or_request_with_http_token do |token, options|
+    def authenticate
+      authenticate_token || render_unauthorized
+    end
+    def authenticate_token
+      authenticate_with_http_token do |token, options|
         ApiKey.exists?(access_token: token)
       end
+    end
+
+    def render_unauthorized
+      self.headers['WWW-Authenticate'] = 'Token realm="Application"'
+      render json: {:error => "Access denied. You did not provide a valid API key." }.to_json, status: 401
     end
 
     def set_article

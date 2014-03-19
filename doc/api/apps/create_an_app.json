@@ -1,0 +1,79 @@
+{
+  "resource": "Apps",
+  "http_method": "POST",
+  "route": "/v1/apps",
+  "description": "Create an App",
+  "explanation": "Create an App, returns the created app",
+  "parameters": [
+    {
+      "name": "dataset_uris",
+      "description": "Dataset uris separados por comma"
+    },
+    {
+      "name": "challenge_url",
+      "description": "Url del challenge"
+    },
+    {
+      "name": "codebase_url",
+      "description": "Url del código fuente open source"
+    },
+    {
+      "name": "demo_url",
+      "description": "Url del demo de la app"
+    },
+    {
+      "name": "description",
+      "description": "Descripción de la app"
+    },
+    {
+      "name": "name",
+      "description": "Nombre de la app"
+    },
+    {
+      "name": "creators",
+      "description": "Twitter de los creadores separados por comma"
+    },
+    {
+      "name": "organization",
+      "description": "Organización que creo la app"
+    },
+    {
+      "name": "location",
+      "description": "Ubicación de los creadores"
+    },
+    {
+      "name": "logo_url",
+      "description": "Logo de la app"
+    },
+    {
+      "name": "visible",
+      "description": "Parametro para fistrar apps en el showcase"
+    },
+    {
+      "name": "technologies",
+      "description": "Tecnologias usadas en la app separadas por comma"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/v1/apps",
+      "request_body": "{\"app\":{\"dataset_uris\":\"da4877f0-0a05-49b3-bf59-d8fd2896566c,ea8ce3be-db31-46b3-84f5-657b71a8e657\",\"challenge_url\":\"http://codeandomexico.org/organizaciones/17/retos/71-aplicacion-movil-infancia-cuenta\",\"codebase_url\":\"https://github.com/CodeandoMexico/apps-api\",\"demo_url\":\"https://cmx-apps-staging.herokuapp.com/\",\"description\":\"API for community gallery of open data \\u0026 civic apps at Codeando Mexico\",\"name\":\"Apps Api\",\"creators\":\"Codeando Mexico,Adrian\",\"organization\":\"cmx\",\"location\":\"Monterrey\",\"logo_url\":\"https://avatars2.githubusercontent.com/u/2940113?s=140\",\"visible\":true,\"technologies\":\"Rails,rails-api\"}}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token token=8d64de3ac8b217b3ac51e4ac6a06da2c",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":4,\"dataset_uris\":\"da4877f0-0a05-49b3-bf59-d8fd2896566c,ea8ce3be-db31-46b3-84f5-657b71a8e657\",\"challenge_url\":\"http://codeandomexico.org/organizaciones/17/retos/71-aplicacion-movil-infancia-cuenta\",\"codebase_url\":\"https://github.com/CodeandoMexico/apps-api\",\"demo_url\":\"https://cmx-apps-staging.herokuapp.com/\",\"description\":\"API for community gallery of open data \\u0026 civic apps at Codeando Mexico\",\"name\":\"Apps Api\",\"creators\":\"Codeando Mexico,Adrian\",\"organization\":\"cmx\",\"location\":\"Monterrey\",\"logo_url\":\"https://avatars2.githubusercontent.com/u/2940113?s=140\",\"visible\":true,\"created_at\":\"2014-03-18T15:31:59.130-05:00\",\"updated_at\":\"2014-03-18T15:31:59.130-05:00\",\"technologies\":\"Rails,rails-api\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"bd372a7c607cb362428b6976422bdea1\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"59735ea7-25bd-42a8-9f32-76adcf6ace52","X-Runtime":"0.008632","Content-Length":"712"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

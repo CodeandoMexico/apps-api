@@ -1,0 +1,31 @@
+{
+  "resource": "Apps",
+  "http_method": "GET",
+  "route": "/v1/apps/:id",
+  "description": "Getting a specific app",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/v1/apps/1",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"id\":1,\"dataset_uris\":\"dataset1,dataset2\",\"challenge_url\":\"challenge\",\"codebase_url\":\"http//github.com\",\"demo_url\":\"http://demo.url\",\"description\":\"description1\",\"name\":\"name1\",\"creators\":\"cmx\",\"organization\":\"codeandomexico\",\"location\":\"location1\",\"logo_url\":\"logo.png\",\"visible\":true,\"created_at\":\"2014-03-18T15:31:59.031-05:00\",\"updated_at\":\"2014-03-18T15:31:59.031-05:00\",\"technologies\":\"ruby,rails\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"c939a1ef1c60f1ff8ce7944cd6335043\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"fc0c015b-7ed2-4a19-b33b-bc6837b28ec5","X-Runtime":"0.002544","Content-Length":"405"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}
