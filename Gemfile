@@ -7,8 +7,14 @@ gem 'rails', '4.0.3'
 
 gem 'rails-api'
 
+gem 'rails_12factor', group: :production
+
 # Use sqlite3 as the database for Active Record
 gem 'pg'
+
+group :assets do
+  gem 'uglifier'
+end
 
 gem 'active_model_serializers'
 gem "apitome"
