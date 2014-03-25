@@ -1,0 +1,74 @@
+module V1
+  class AppsController < ApplicationController
+    include ActionController::HttpAuthentication::Token::ControllerMethods
+
+    before_action :authenticate, only: [:update, :create, :destroy]
+    before_action :set_article, only: [:show, :edit, :update, :destroy]
+    after_action :set_access_control_headers, only: [:index, :show]
+
+    def index
+      @apps = App.all_visible
+      request.GET.each do |key, value|
+        @apps = @apps.filter(key,value)
+      end
+      render json: @apps
+    end
+
+    def show
+      render json: @app
+    end
+
+    def update
+      if @app.update(app_params)
+        render json: @app, status: :accepted
+      else
+        render json: @app.errors, status: :unprocessable_entity
+      end
+    end
+
+    def create
+      @app = App.new(app_params)
+
+      if @app.save
+        render json: @app, status: :created
+      else
+        render json: @app.errors, status: :unprocessable_entity
+      end
+    end
+
+    def destroy
+      @app.destroy
+
+      head :no_content, status: :ok
+    end
+
+  private
+    def authenticate
+      authenticate_token || render_unauthorized
+    end
+    def authenticate_token
+      authenticate_with_http_token do |token, options|
+        ApiKey.exists?(access_token: token)
+      end
+    end
+
+    def render_unauthorized
+      self.headers['WWW-Authenticate'] = 'Token realm="Application"'
+      render json: {:error => "Access denied. You did not provide a valid API key." }.to_json, status: 401
+    end
+
+    def set_article
+      @app = App.find(params[:id])
+    end
+
+    def app_params
+      params.require(:app).permit(:dataset_uris, :challenge_url, :codebase_url, :demo_url, :description, :name, :creators, :organization, :location, :logo_url, :visible, :technologies)
+    end
+
+    # This is used to allow the cross origin requests
+    def set_access_control_headers
+      headers['Access-Control-Allow-Origin'] = "*"
+      headers['Access-Control-Request-Method'] = %w{GET POST OPTIONS}.join(",")
+    end
+  end
+end

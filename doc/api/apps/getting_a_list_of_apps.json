@@ -1,0 +1,31 @@
+{
+  "resource": "Apps",
+  "http_method": "GET",
+  "route": "/v1/apps",
+  "description": "Getting a list of apps",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/v1/apps",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[{\"id\":1,\"dataset_uris\":\"dataset1,dataset2\",\"challenge_url\":\"challenge\",\"codebase_url\":\"http//github.com\",\"demo_url\":\"http://demo.url\",\"description\":\"description1\",\"name\":\"name1\",\"creators\":\"cmx\",\"organization\":\"codeandomexico\",\"location\":\"location1\",\"logo_url\":\"logo.png\",\"visible\":true,\"created_at\":\"2014-03-18T15:31:59.031-05:00\",\"updated_at\":\"2014-03-18T15:31:59.031-05:00\",\"technologies\":\"ruby,rails\"},{\"id\":2,\"dataset_uris\":\"dataset1,dataset2\",\"challenge_url\":\"challenge\",\"codebase_url\":\"http//github.com\",\"demo_url\":\"http://demo.url\",\"description\":\"description2\",\"name\":\"name2\",\"creators\":\"cmx\",\"organization\":\"codeandomexico\",\"location\":\"location2\",\"logo_url\":\"logo.png\",\"visible\":true,\"created_at\":\"2014-03-18T15:31:59.102-05:00\",\"updated_at\":\"2014-03-18T15:31:59.102-05:00\",\"technologies\":\"ruby,rails\"},{\"id\":4,\"dataset_uris\":\"da4877f0-0a05-49b3-bf59-d8fd2896566c,ea8ce3be-db31-46b3-84f5-657b71a8e657\",\"challenge_url\":\"http://codeandomexico.org/organizaciones/17/retos/71-aplicacion-movil-infancia-cuenta\",\"codebase_url\":\"https://github.com/CodeandoMexico/apps-api\",\"demo_url\":\"https://cmx-apps-staging.herokuapp.com/\",\"description\":\"API for community gallery of open data \\u0026 civic apps at Codeando Mexico\",\"name\":\"Apps Api\",\"creators\":\"Codeando Mexico,Adrian\",\"organization\":\"cmx\",\"location\":\"Monterrey\",\"logo_url\":\"https://avatars2.githubusercontent.com/u/2940113?s=140\",\"visible\":true,\"created_at\":\"2014-03-18T15:31:59.130-05:00\",\"updated_at\":\"2014-03-18T15:31:59.130-05:00\",\"technologies\":\"Rails,rails-api\"},{\"id\":5,\"dataset_uris\":\"dataset1,dataset2\",\"challenge_url\":\"challenge\",\"codebase_url\":\"http//github.com\",\"demo_url\":\"http://demo.url\",\"description\":\"description4\",\"name\":\"name4\",\"creators\":\"cmx\",\"organization\":\"codeandomexico\",\"location\":\"location4\",\"logo_url\":\"logo.png\",\"visible\":true,\"created_at\":\"2014-03-18T15:31:59.144-05:00\",\"updated_at\":\"2014-03-18T15:31:59.144-05:00\",\"technologies\":\"ruby,rails\"},{\"id\":6,\"dataset_uris\":\"dataset1,dataset2\",\"challenge_url\":\"challenge\",\"codebase_url\":\"http//github.com\",\"demo_url\":\"http://demo.url\",\"description\":\"description5\",\"name\":\"name5\",\"creators\":\"cmx\",\"organization\":\"codeandomexico\",\"location\":\"location5\",\"logo_url\":\"logo.png\",\"visible\":true,\"created_at\":\"2014-03-18T15:31:59.146-05:00\",\"updated_at\":\"2014-03-18T15:31:59.146-05:00\",\"technologies\":\"ruby,rails\"}]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Access-Control-Allow-Origin":"*","Access-Control-Request-Method":"GET,POST,OPTIONS","Content-Type":"application/json; charset=utf-8","ETag":"\"f64f910ac6dd6f26d50f39250766c48e\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"7579cc67-ba11-4a4e-af2d-99dbbbd4cf24","X-Runtime":"0.003013","Content-Length":"2338"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}
