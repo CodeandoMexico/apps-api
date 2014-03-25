@@ -4,7 +4,7 @@ module V1
 
     before_action :authenticate, only: [:update, :create, :destroy]
     before_action :set_article, only: [:show, :edit, :update, :destroy]
-    after_action :set_access_control_headers, only: [:index]
+    after_action :set_access_control_headers, only: [:index, :show]
 
     def index
       @apps = App.all_visible
